@@ -15,7 +15,7 @@ response = client.chat.completions.create(
     messages=[
         {
             "role": "user",
-            "content": "Explica que es una API en una oracion."
+            "content": "Escribe la palabra hola, en portugues, frances e italiano."
         }
     ]
 )
@@ -26,3 +26,18 @@ response = client.chat.completions.create(
 #.content I want the content of that message
 text = response.choices[0].message.content
 print(text)
+
+print("\n--Uso de tokens--")
+print(f"Tokens de entrada: {response.usage.prompt_tokens}")
+print(f"Tokens de salida: {response.usage.completion_tokens}")
+print(f"Total Tokens: {response.usage.total_tokens}")
+
+cost_input = (response.usage.prompt_tokens / 1_000_000) * 0.15
+cost_output = (response.usage.completion_tokens / 1_000_000) * 0.60
+total_cost = cost_input + cost_output
+
+print(f"\nCosto estimado: ${total_cost:.6f} USD")
+print(f"\nID de la repuesta: {response.id}")
+print(f"Modelo utilizado: {response.model}")
+
+
