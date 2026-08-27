@@ -1,3 +1,4 @@
+""" Helper to call AI API"""
 from openai import OpenAI
 from dotenv import load_dotenv
 
@@ -5,14 +6,14 @@ load_dotenv()
 
 client = OpenAI()
 
-
+#This function is used to call AI sending it a message to interact with
 def call_ai(messages: list, temperature: float = 0.1) -> str:
     """ Client Function: Create and execute """
     response = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-4o-mini", # Set model for default 
         messages=messages,
         temperature=temperature
     )
 
-    return response.choices[0].message.content
+    return response.choices[0].message.content # Returning the API response 
 
