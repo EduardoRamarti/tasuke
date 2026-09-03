@@ -1,0 +1,5 @@
+go_7_paginas.pdf:12405
+java_7_paginas.pdf:12561
+javascript_7_paginas.pdf:12945
+python_7_paginas.pdf:13464
+rust_7_paginas.pdf:12202
